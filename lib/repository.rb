@@ -30,7 +30,7 @@ module Lib
     def insert(title:, processed_at: 'NULL')
       query = <<-SQL
         INSERT INTO events(title, processed_at)
-        VALUES("#{title}", "#{processed_at}")
+        VALUES("#{title}", #{processed_at})
         RETURNING id;
       SQL
 
