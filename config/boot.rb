@@ -8,6 +8,8 @@ require 'debug'
 require 'listen'
 require 'sqlite3'
 
+APP_ENV = ENV['APP_ENV'] || 'production'
+
 ROOT_PATH = File.expand_path('../', __dir__)
 
 File.expand_path('../lib', __dir__).tap do |lib_path|
@@ -19,7 +21,7 @@ File.expand_path('../lib', __dir__).tap do |lib_path|
 end
 
 # Load the environment
-if APP_ENV == 'test'
+if APP_ENV == 'development' || APP_ENV == 'test'
   require File.expand_path('../config/dev_enviroment', __dir__)
 else
   require File.expand_path('../config/prod_enviroment', __dir__)

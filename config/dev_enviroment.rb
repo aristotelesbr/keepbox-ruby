@@ -7,5 +7,5 @@ FileUtils.rm_f database
 # Strart the database
 DB = SQLite3::Database.new database
 
-# Requere database
+# Load database schema
 require File.expand_path('../config/database', __dir__)
