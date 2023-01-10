@@ -11,6 +11,26 @@ module Lib
       @db.results_as_hash = true
     end
 
+    # Mark as processed an event.
+    #
+    # @param [Event] event
+    # @return [Boolean] true if the event was updated.
+    def mark_as_processed(event)
+      query = <<-SQL
+        UPDATE events
+        SET processed_at = datetime('now')
+        WHERE id = #{event.id};
+      SQL
+
+      @db.execute query
+
+      true
+    rescue StandardError => e
+      # Log error. Failt to update event.
+      puts e.message
+      false
+    end
+
     def exists?(id)
       !@db.execute('SELECT * FROM events WHERE id = ?', [id]).empty?
     end
@@ -25,6 +45,17 @@ module Lib
 
     def delete(id)
       @db.execute('DELETE FROM events WHERE id = ?', [id])
+    end
+
+    # @param limit [Integer] the number of events to return.
+    # @return [Array<Event>] a list of events.
+    def unprocssed(limit: 10)
+      @db.execute(
+        'SELECT * FROM events WHERE processed_at IS NULL LIMIT ?',
+        [limit]
+      ).map do |row|
+        Event.new(**row)
+      end
     end
 
     def insert(title:, processed_at: 'NULL')
