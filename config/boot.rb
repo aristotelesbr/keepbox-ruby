@@ -4,6 +4,7 @@ unless RUBY_VERSION >= '3.1.0'
   raise StandardError, 'Wrong Ruby version, please use a version >= 3.1'
 end
 
+require 'aws-sdk-s3'
 require 'debug'
 require 'listen'
 require 'sqlite3'
