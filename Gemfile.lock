@@ -58,11 +58,13 @@ GEM
     rubocop-minitest (0.25.1)
       rubocop (>= 0.90, < 2.0)
     ruby-progressbar (1.11.0)
-    sqlite3 (1.6.0.rc1-x86_64-darwin)
+    sqlite3 (1.6.0-x86_64-darwin)
+    sqlite3 (1.6.0-x86_64-linux)
     unicode-display_width (2.4.2)
 
 PLATFORMS
   x86_64-darwin-20
+  x86_64-linux
 
 DEPENDENCIES
   aws-sdk-s3 (~> 1.117, >= 1.117.2)
