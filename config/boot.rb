@@ -1,13 +1,18 @@
 # frozen_string_literal: true
 
-unless RUBY_VERSION >= '3.1.0'
-  raise StandardError, 'Wrong Ruby version, please use a version >= 3.1'
+if RUBY_VERSION < '3.2.0'
+  raise StandardError, 'Wrong Ruby version, please use a version >= 3.2'
 end
 
+require 'async'
+require 'async/semaphore'
 require 'aws-sdk-s3'
 require 'debug'
+require 'dotenv'
 require 'listen'
 require 'sqlite3'
+
+Dotenv.load
 
 APP_ENV = ENV['APP_ENV'] || 'production'
 

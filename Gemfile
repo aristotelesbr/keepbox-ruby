@@ -13,6 +13,12 @@ gem 'listen', '~> 3.7', '>= 3.7.1'
 # [https://rubygems.org/gems/sqlite3]
 # This module allows Ruby programs to interface with the SQLite3 database engine
 gem 'sqlite3', '~> 1.5', '>= 1.5.4'
+# [https://rubygems.org/gems/async]
+# Async is a Ruby library for writing concurrent code using the event loop
+gem 'async', '~> 2.3', '>= 2.3.1'
+# [https://rubygems.org/gems/dotenv]
+# Loads environment variables from `.env`.
+gem 'dotenv', '~> 2.8', '>= 2.8.1'
 
 group :development, :test do
   # [https://rubygems.org/gems/rake]
