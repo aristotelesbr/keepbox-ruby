@@ -35,6 +35,16 @@ export BUCKET=YOUR_AWS_BUCKET
 export PREFIX=YOUR_AWS_PREFIX
 ```
 
+You can also use `env-example` in the root directory to create a `.env` file with your credentials.
+
+## Run tests
+
+Run the following command to run the tests:
+
+```bash
+bundle exec rake test
+```
+
 ## Usage
 
 Choice a directory to monitor and run keepbox.rb:
