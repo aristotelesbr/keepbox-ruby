@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require 'debug'
-require 'sqlite3'
-
 module Lib
   # Repository class to handle the database.
   class Repository
