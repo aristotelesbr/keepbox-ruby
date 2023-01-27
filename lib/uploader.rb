@@ -55,8 +55,8 @@ module Lib
     #
     # @example
     #  uploader.call('path/to/file')
-    # puts uploader.result[:success]
-    # puts uploader.result[:context]
+    #  puts uploader.result[:success]
+    #  puts uploader.result[:context]
     def call(file_path)
       # Check if file exists
       return if file_path.nil?
